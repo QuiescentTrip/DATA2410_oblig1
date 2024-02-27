@@ -23,10 +23,14 @@ if __name__ == "__main__":
             with open(sys.argv[1], "r") as f:
                 file = f.read().split("\n")
                 throughputs = []
+
                 for line in file:
                     tmp = line.split(" ")
-                    prefix_letter = prefix[tmp[1][0]]
-                    throughput_calculated = int(tmp[0]) * prefix_letter 
+
+                    first_num = int(tmp[0])
+                    prefix = prefix[tmp[1][0]]
+
+                    throughput_calculated = first_num * prefix
                     
                     throughputs.append(throughput_calculated) 
 
@@ -34,3 +38,5 @@ if __name__ == "__main__":
 
         except:
             print("Could not find file.")
+    else:
+        print("There was an error.\nUsage: python3 jains.py [10,10,10] // prints 1")
