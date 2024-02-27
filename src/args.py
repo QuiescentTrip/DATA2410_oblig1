@@ -4,6 +4,10 @@ lower_limit = 1024
 upper_limit = 65535
 
 def check_port(val):
+    '''
+    Checks val if val is valid port.
+    returns val converted to interger if port is valid.
+    '''
     try:
         value = int(val)
     except ValueError:
@@ -15,6 +19,10 @@ def check_port(val):
     return value
 
 def check_ip(val):
+    '''
+    Checks if IP is valid.
+    Returns IP if valid.
+    '''
     split = val.split(".") 
     if len(split) != 4:
         raise argparse.ArgumentTypeError("The IP needs to be written in standard format")
